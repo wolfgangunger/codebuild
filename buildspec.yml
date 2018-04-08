@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      #- echo Gradle Build
+      #- chmod +x gradlew
+      #- ./gradlew --debug --stacktrace build
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      #- $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - $(aws ecr get-login --region eu-central-1 --no-include-email)      
+      - REPOSITORY_URI=431271371214.dkr.ecr.eu-central-1.amazonaws.com/ecs-repository
+     # - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=man-ms-orderVehicleConfigurationHandler-ws_0.0.1-SNAPSHOT
+     
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"man-ms-ordervehiclesrv","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+    files: imagedefinitions.json
