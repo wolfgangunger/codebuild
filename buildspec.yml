@@ -7,10 +7,10 @@ phases:
      
   build:
     commands:
-
-      #- echo Gradle Build
-      #- chmod +x gradlew
-      #- ./gradlew --debug --stacktrace build
+     # testing both maven and gradle build
+      - echo Gradle Build
+      - chmod +x gradlew
+      - ./gradlew --debug --stacktrace build
 
       - echo Maven Build 
       - mvn package
