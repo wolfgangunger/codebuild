@@ -10,8 +10,9 @@ phases:
      # testing both maven and gradle build
       - echo Gradle Build
       - chmod +x gradlew
-      - ./gradlew --debug --stacktrace build
-
+      #- ./gradlew --debug --stacktrace build
+      - ./gradlew  build
+      
       - echo Maven Build 
       - mvn package
            
