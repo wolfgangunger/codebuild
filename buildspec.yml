@@ -3,7 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-
+  # test system variables
+       - echo $AWS_DEFAULT_REGION 
+       - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+       # variable defined in job
+       - echo $Var1
      
   build:
     commands:
