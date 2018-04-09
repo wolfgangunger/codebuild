@@ -1,6 +1,7 @@
+#not needed for this example - no ecs service
 [
     {
-        "name": "man-ms-ordervehiclesrv",
-        "imageUri": "431271371214.dkr.ecr.eu-central-1.amazonaws.com/ecs-repository:man-ms-orderVehicleConfigurationHandler-ws_0.0.1-SNAPSHOT"
+        "name": "codebuild",
+        "imageUri": "431271371214.dkr.ecr.eu-central-1.amazonaws.com/ecs-repository:codebuild_0.0.1-SNAPSHOT"
     }
 ]
