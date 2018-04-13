@@ -24,4 +24,4 @@ phases:
     commands:
 
 artifacts:
-     files:  target/cbtest1-0.0.1-SNAPSHOT.jar
+     files:  cbtest1-0.0.1-SNAPSHOT.jar
