@@ -30,4 +30,4 @@ phases:
       - docker build -t $REPOSITORY_URI:latest .
 
 artifacts:
-     files:  codebuild-0.0.1-SNAPSHOT.jar
+     files:  target/codebuild-0.0.1-SNAPSHOT.jar
