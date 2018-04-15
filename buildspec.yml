@@ -8,8 +8,8 @@ phases:
        - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
        # variable defined in job
        - echo $Var1
-       - ARTIFACT = codebuild-0.0.1-SNAPSHOT
-       - ARTIFACT_TYPE = .jar 
+       - ARTIFACT=codebuild-0.0.1-SNAPSHOT
+       - ARTIFACT_TYPE=.jar 
        - echo $ ARTIFACT
        - echo $ ARTIFACT_TYPE
      
